@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh *)",
+      "Bash(git config *)",
+      "Bash(type *)",
+      "Bash(curl *)",
+      "Bash(sudo *)",
+      "Bash(echo *)",
+      "Bash(tar *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(~/.local/bin/gh *)",
+      "Bash(git init)",
+      "Bash(git add *)"
+    ]
+  },
+  "$version": 4
+}
