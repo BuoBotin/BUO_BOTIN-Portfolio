@@ -31,7 +31,7 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="/BUO_BOTIN_CV.pdf"
+              href={`${import.meta.env.BASE_URL}BUO_BOTIN_CV.pdf`}
               download
               className="inline-flex h-[50px] min-w-[152px] items-center justify-center rounded-[6px] border border-primary bg-transparent px-7 text-[13px] font-semibold text-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-canvas dark:border-[#625cff] dark:text-[#aaa7ff] dark:hover:bg-[#625cff] dark:hover:text-white dark:focus-visible:ring-offset-[#090d17]"
             >
