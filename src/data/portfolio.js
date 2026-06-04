@@ -31,7 +31,9 @@ export const projects = [
       'A point-of-sale solution tailored for cafes, handling order management, inventory tracking, and daily reporting.',
     image: '/assets/cafe-pos.png',
     alt: 'Cafe POS analytics dashboard preview',
-    tech: ['Laravel', 'MySQL'],
+    tech: ['React JS', 'Laravel', 'SQLite'],
+    github: 'https://github.com/Heang-Dev/CHOUBMIT_POS',
+    liveDemo: 'https://matcha-pos-staging.up.railway.app/v1',
   },
   {
     title: 'Number Guessing Game',
@@ -39,7 +41,9 @@ export const projects = [
       'An interactive browser-based game focusing on DOM manipulation, state management, and user feedback.',
     image: '/assets/number-guessing.png',
     alt: 'Number guessing game interface preview',
-    tech: ['JS', 'CSS'],
+    tech: ['Laravel', 'Tailwind CSS', 'JavaScript'],
+    github: 'https://github.com/BuoBotin/number-guessing-game',
+    liveDemo: null,
   },
   {
     title: 'To-Do List Application',
@@ -47,7 +51,9 @@ export const projects = [
       'A focused productivity app with persistent tasks, completion states, and clean LocalStorage data handling.',
     image: '/assets/todo-list.png',
     alt: 'To-do list application interface preview',
-    tech: ['JavaScript', 'LocalStorage', 'CSS'],
+    tech: ['HTML', 'Tailwind CSS', 'JavaScript'],
+    github: 'https://github.com/BuoBotin/taskflow-todo-app',
+    liveDemo: 'https://buobotin.github.io/taskflow-todo-app/',
   },
 ];
 

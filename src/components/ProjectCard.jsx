@@ -9,7 +9,7 @@ export default function ProjectCard({ project, delay = 0 }) {
     >
       <div className="h-[220px] overflow-hidden bg-slate-100 dark:bg-[#0b1220]">
         <img
-          src={project.image}
+          src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`}
           alt={project.alt}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
           loading="lazy"
@@ -37,27 +37,33 @@ export default function ProjectCard({ project, delay = 0 }) {
           </div>
 
           <div className="flex flex-wrap gap-[10px]">
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-[36px] min-w-0 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-[5px] border border-slate-300 px-3 text-[12px] font-semibold text-ink transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#334158] dark:text-slate-100 dark:hover:border-[#8f8bff] dark:hover:text-[#aaa7ff] dark:focus-visible:ring-offset-[#111827]"
-              aria-label={`Open GitHub repository for ${project.title}`}
-            >
-              <FaGithub aria-hidden="true" className="h-3 w-3" />
-              GitHub
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex h-[36px] min-w-0 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-[5px] border border-primary bg-primary px-3 text-[12px] font-semibold text-white transition-colors hover:bg-[#2922d4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#625cff] dark:bg-[#625cff] dark:hover:bg-[#7a75ff] dark:focus-visible:ring-offset-[#111827]"
-              aria-label={`Open live demo for ${project.title}`}
-            >
-              <FaArrowUpRightFromSquare
-                aria-hidden="true"
-                className="h-3 w-3"
-              />
-              Live Demo
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-[36px] min-w-0 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-[5px] border border-slate-300 px-3 text-[12px] font-semibold text-ink transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#334158] dark:text-slate-100 dark:hover:border-[#8f8bff] dark:hover:text-[#aaa7ff] dark:focus-visible:ring-offset-[#111827]"
+                aria-label={`Open GitHub repository for ${project.title}`}
+              >
+                <FaGithub aria-hidden="true" className="h-3 w-3" />
+                GitHub
+              </a>
+            )}
+            {project.liveDemo && (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-[36px] min-w-0 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-[5px] border border-primary bg-primary px-3 text-[12px] font-semibold text-white transition-colors hover:bg-[#2922d4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#625cff] dark:bg-[#625cff] dark:hover:bg-[#7a75ff] dark:focus-visible:ring-offset-[#111827]"
+                aria-label={`Open live demo for ${project.title}`}
+              >
+                <FaArrowUpRightFromSquare
+                  aria-hidden="true"
+                  className="h-3 w-3"
+                />
+                Live Demo
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -30,6 +30,7 @@ export default function Contact() {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -38,7 +39,7 @@ export default function Contact() {
     setStatus('');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
@@ -48,8 +49,35 @@ export default function Contact() {
       return;
     }
 
-    setStatus('Thanks, your message is ready to send.');
-    setValues(initialValues);
+    setSending(true);
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/4a7dfaa03456565ad750b8706d2d8f6e', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          message: values.message,
+          _subject: `Portfolio Contact from ${values.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("Thanks! Your message has been sent. I'll get back to you soon.");
+        setValues(initialValues);
+      } else {
+        setStatus('Something went wrong. Please try again or email me directly at buobotin123@gmail.com');
+      }
+    } catch {
+      setStatus('Something went wrong. Please try again or email me directly at buobotin123@gmail.com');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
